@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>微尘的网站</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background-color: #eee;
+      }
+      /* * {
+              border: 1px solid black;
+            } */
+      .yinYing {
+        box-shadow: rgb(0 0 0 / 10%) 4px 5px 40px 10px,
+          rgb(0 0 0 / 14%) 0px 1px 5px 2px, rgb(0 0 0 / 14%) 0px 1px 8px 2px;
+      }
+      .flex {
+        display: flex;
+      }
+      .baiSe {
+        background-color: white;
+      }
+      .flex1 {
+        flex: 1;
+      }
+      .column {
+        flex-direction: column;
+      }
+      .mg8 {
+        margin: 8px;
+      }
+      .mgr8 {
+        margin-right: 8px;
+      }
+      .mgt8 {
+        margin-top: 8px;
+      }
+      .daoHang {
+        padding: 10px 20px;
+        border-bottom: 1px solid rgb(190, 190, 190);
+        font-size: 14px;
+        color: #666;
+      }
+      .youQu {
+        margin-left: 8px;
+      }
+      .shuju {
+        margin: 0 0 8px;
+        flex: auto;
+      }
+      .center-text {
+        text-align: center;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 1500px;
+        margin: 7 auto;
+        padding: 50px 30px;
+        background: white;
+      }
+
+      /* 第一行：标题导航 */
+      .tabs-container {
+        display: flex;
+        justify-content: space-around; /* 平均分布 */
+        border-bottom: 20px solid #979595;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+        position: relative;
+      }
+
+      .tab {
+        text-align: center;
+        flex: 1;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+      }
+
+      /* 第二行：主体内容三列布局 */
+      .content-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /* 三等分 */
+        gap: 300px;
+        margin-bottom: 30px;
+      }
+
+      .section {
+        position: relative;
+      }
+
+      .contact-section {
+        text-align: left;
+      }
+
+      .brand-section {
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .legal-section {
+        text-align: right;
+      }
+
+      /* 第三行：底部备案信息 */
+      .footer-info {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #888;
+      }
+
+      /* 响应式处理 */
+      @media (max-width: 768px) {
+        .tabs-container {
+          flex-direction: column;
+        }
+
+        .tab {
+          margin-bottom: 15px;
+        }
+
+        .content-container {
+          grid-template-columns: 1fr;
+        }
+
+        .brand-section {
+          position: static;
+          transform: none;
+        }
+
+        .footer-info {
+          flex-direction: column;
+        }
+      }
+      #bottom-box {
+        position: relative;
+      }
+
+      #wechat-qr-code {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 100px;
+        height: 120px;
+      }
+      /* 重置默认样式，可选 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #beb6b6; /* 页面背景色，可调整 */
+        padding: 20px;
+      }
+      /* 格子容器：用 grid 实现多列布局 */
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        /* 自动适配列数，每列最小 250px，最大占满剩余空间 */
+        grid-gap: 20px; /* 格子间距 */
+        max-width: 1200px; /* 限制最大宽度，让布局居中紧凑 */
+        margin: 0 auto;
+      }
+      /* 格子卡片样式 */
+      .grid-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* 裁剪图片溢出 */
+        transition: transform 0.2s ease; /*  hover 动画过渡 */
+      }
+      .grid-card:hover {
+        transform: translateY(-5px); /* 轻微上移，增强交互感 */
+      }
+      /* 卡片图片 */
+      .card-img {
+        width: 100%;
+        height: auto;
+        display: block; /* 去掉图片底部间隙 */
+      }
+      /* 卡片内容区域 */
+      .card-content {
+        padding: 16px;
+      }
+      .card-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .card-desc {
+        color: #666;
+        line-height: 1.4;
+      }
+    </style>
+  </head>
+  <body class="flex">
+    <!-- 顶部占满页面的格子 -->
+    <div
+      style="
+        width: 100vw;
+        height: 120px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: rgba(243, 245, 247, 0.5);
+        color: #080808;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        z-index: 100;
+      "
+    >
+      <!-- 添加搜索框 -->
+      <div style="position: absolute; top: 10px; left: 10px">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="搜索"
+          style="border: 1px solid black; background-color: white; padding: 5px"
+        />
+        <button
+          id="search-button"
+          style="
+            border: 1px solid black;
+            background-color: black;
+            color: white;
+            padding: 5px;
+          "
+        >
+          搜索
+        </button>
+      </div>
+      <div class="center-text">
+        <h1>Bana</h1>
+        <p>Diligent creative</p>
+      </div>
+    </div>
+    <!-- 主区域 -->
+    <div class="flex1" style="display: flex; flex-direction: column">
+      <!-- 内容区 -->
+      <div
+        style="overflow: auto; height: calc(100vh - 60px)"
+        class="flex1 flex"
+      >
+        <!-- 左区 -->
+        <div style="flex: 3" class="flex column mg8">
+          <!-- 列表区 -->
+          <div class="flex column">
+            <!-- 列表项 -->
+            <div style="height: 700px" class="baiSe mgt8 yinYing">
+              <div class="carousel">
+                <img
+                  src="https://assets.hermes.cn/is/image/hermesedito/Ratio-16-7_LB_SHOES_AH25_1920x1080px_10_OK?fit=wrap%2C0&wid=1920"
+                  class="carousel-img"
+                  style="
+                    display: block;
+                    width: 100%;
+                    height: 700px;
+                    object-fit: cover;
+                  "
+                />
+                <img
+                  src="https://assets.hermes.cn/is/image/hermesedito/Ratio-16-9_LB_SHOES_AH25_1920x1080px_29?fit=wrap%2C0&wid=1920"
+                  class="carousel-img"
+                  style="
+                    display: none;
+                    width: 100%;
+                    height: 700px;
+                    object-fit: cover;
+                  "
+                />
+                <img
+                  src="https://assets.hermes.cn/is/image/hermesedito/Ratio-16-9_LB_SHOES_AH25_1920x1080px_05?fit=wrap%2C0&wid=1920"
+                  class="carousel-img"
+                  style="
+                    display: none;
+                    width: 100%;
+                    height: 700px;
+                    object-fit: cover;
+                  "
+                />
+                <script>
+                  let current = 0;
+                  const imgs = document.querySelectorAll(".carousel-img");
+                  function showImg(idx) {
+                    imgs.forEach(
+                      (img, i) =>
+                        (img.style.display = i === idx ? "block" : "none")
+                    );
+                  }
+                  function prevImg() {
+                    current = (current - 1 + imgs.length) % imgs.length;
+                    showImg(current);
+                  }
+                  function nextImg() {
+                    current = (current + 1) % imgs.length;
+                    showImg(current);
+                  }
+                  // 自动切换，每3秒切换一次
+                  setInterval(() => {
+                    nextImg();
+                  }, 3000);
+                  // 初始化显示第一张
+                  showImg(current);
+                </script>
+              </div>
+            </div>
+            <div class="grid-container">
+              <!-- 卡片1 -->
+              <a href="next(3).html">
+                <div class="grid-card">
+                  <img
+                    src="https://img.gugu.ovh/i/2025/07/22/131158.webp"
+                    alt="示例图"
+                    class="card-img"
+                  />
+                  <div class="card-content">
+                    <h2 class="card-title">平底鞋</h2>
+                    <p class="card-desc">舒适耐穿平底鞋</p>
+                  </div>
+                </div>
+              </a>
+              <!-- 卡片2 -->
+              <a href="next(4).html">
+                <div class="grid-card">
+                  <img
+                    src="https://img.gugu.ovh/i/2025/07/22/151643.webp"
+                    alt="示例图"
+                    class="card-img"
+                  />
+                  <div class="card-content">
+                    <h2 class="card-title">马丁靴</h2>
+                    <p class="card-desc">干练通勤马丁靴</p>
+                  </div>
+                </div>
+              </a>
+              <!-- 卡片3 -->
+              <a href="next.html">
+                <div class="grid-card">
+                  <img
+                    src="https://img.gugu.ovh/i/2025/07/22/174911.webp"
+                    alt="示例图"
+                    class="card-img"
+                  />
+                  <div class="card-content">
+                    <h2 class="card-title">高跟鞋</h2>
+                    <p class="card-desc">优雅气质高跟鞋</p>
+                  </div>
+                </div>
+              </a>
+              <!-- 卡片4 -->
+              <a href="next(2).html">
+                <div class="grid-card">
+                  <img
+                    src="https://img.gugu.ovh/i/2025/07/22/173822.webp"
+                    alt="示例图"
+                    class="card-img"
+                  />
+                  <div class="card-content">
+                    <h2 class="card-title">运动鞋</h2>
+                    <p class="card-desc">轻便舒适运动鞋</p>
+                  </div>
+                </div>
+              </a>
+              <!-- 卡片5 -->
+              <a href="next(5).html">
+                <div class="grid-card">
+                  <img
+                    src="https://img.gugu.ovh/i/2025/07/22/112423.webp"
+                    alt="示例图"
+                    class="card-img"
+                  />
+                  <div class="card-content">
+                    <h2 class="card-title">特殊鞋材</h2>
+                    <p class="card-desc">柔韧细腻，品质之选</p>
+                  </div>
+                </div>
+              </a>
+              <!-- 卡片6 -->
+              <a href="next(8).html">
+                <div class="grid-card">
+                  <img
+                    src="https://img.gugu.ovh/i/2025/07/21/105817.webp"
+                    alt="示例图"
+                    class="card-img"
+                  />
+                  <div class="card-content">
+                    <h2 class="card-title">皮革</h2>
+                    <p class="card-desc">柔韧耐品，质显不凡</p>
+                  </div>
+                </div>
+              </a>
+              <!-- 卡片7 -->
+              <a href="next(7).html">
+                <div class="grid-card">
+                  <img
+                    src="https://img.gugu.ovh/i/2025/07/22/174355.webp"
+                    alt="示例图"
+                    class="card-img"
+                  />
+                  <div class="card-content">
+                    <h2 class="card-title">玛丽珍</h2>
+                    <p class="card-desc">软底优雅显气质</p>
+                  </div>
+                </div>
+              </a>
+              <!-- 卡片8 -->
+              <a href="next(6).html">
+                <div class="grid-card">
+                  <img
+                    src="https://img.gugu.ovh/i/2025/07/22/175514.webp"
+                    alt="示例图"
+                    class="card-img"
+                  />
+                  <div class="card-content">
+                    <h2 class="card-title">勃肯鞋</h2>
+                    <p class="card-desc">一脚蹬享舒适</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div style="height: 140px" class="baiSe mgt8 yinYing">
+              <div class="center-text"><h1>新款推荐</h1></div>
+              <div class="center-text">
+                <p>潮流运动风:活力与时尚的完美融合</p>
+              </div>
+              <div class="center-text">
+                <p>
+                  能让你在人群中脱颖而出,无论是日常通勤还是潮流穿搭,这款鞋都能轻松驾驭
+                </p>
+              </div>
+            </div>
+            <div style="height: 650px" class="baiSe mgt8 yinYing">
+              <img
+                src="https://assets.hermes.com/is/image/hermesedito/2591_IMAGINE_POS250410_HERMES_CROSS_AH25_31_065_sRGB_F?fit=wrap%2C0&wid=1920"
+                alt=""
+                style="height: 100%; width: 100%"
+              />
+            </div>
+            <div style="height: 300px" class="baiSe mgt8 yinYing">
+              <div class="flex" style="height: 100%">
+                <div class="grid-container">
+                  <!-- 卡片9 -->
+                  <a href="pingdixie(5).html">
+                    <div class="grid-card">
+                      <img
+                        src="https://img.gugu.ovh/i/2025/07/22/131137.webp"
+                        alt="示例图"
+                        class="card-img"
+                      />
+                      <div class="card-content"></div>
+                    </div>
+                  </a>
+                  <!-- 卡片10 -->
+                  <a href="madingxie(1).html">
+                    <div class="grid-card">
+                      <img
+                        src="https://img.gugu.ovh/i/2025/07/22/151637.webp"
+                        alt="示例图"
+                        class="card-img"
+                      />
+                      <div class="card-content"></div>
+                    </div>
+                  </a>
+                  <!-- 卡片11 -->
+                  <a href="gaogenxie(3).html">
+                    <div class="grid-card">
+                      <img
+                        src="https://img.gugu.ovh/i/2025/07/22/174911.webp"
+                        alt="示例图"
+                        class="card-img"
+                      />
+                      <div class="card-content"></div>
+                    </div>
+                  </a>
+                  <!-- 卡片12 -->
+                  <a href="malizhen(1).html">
+                    <div class="grid-card">
+                      <img
+                        src="https://img.gugu.ovh/i/2025/07/22/174355.webp"
+                        alt="示例图"
+                        class="card-img"
+                      />
+                      <div class="card-content"></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div style="height: 140px" class="baiSe mgt8 yinYing">
+              <div class="center-text"><h1>热卖商品</h1></div>
+
+              <div class="center-text">
+                <p>
+                  运动鞋演绎bana匠心工艺与现代运动活力。设计美学与动感廓形交汇,特立独行,始终走在风格前沿。
+                </p>
+              </div>
+              <div class="center-text">
+                <p>透气轻量,高弹缓震,​百搭耐穿,​防滑稳脚,透气不闷</p>
+              </div>
+            </div>
+            <div style="height: 650px" class="baiSe mgt8 yinYing">
+              <img
+                src="https://assets.hermes.com/is/image/hermesedito/2591_IMAGINE_POS250410_HERMES_CROSS_AH25_42_035_sRGB_F?fit=wrap%2C0&wid=1920"
+                alt=""
+                style="height: 100%; width: 100%"
+              />
+            </div>
+            <div style="height: 300px" class="baiSe mgt8 yinYing">
+              <div class="flex" style="height: 100%">
+                <div class="grid-container">
+                  <!-- 卡片13 -->
+                  <a href="yundongxie(2).html">
+                    <div class="grid-card">
+                      <img
+                        src="https://img.gugu.ovh/i/2025/07/22/173822.webp"
+                        alt="示例图"
+                        class="card-img"
+                      />
+                      <div class="card-content"></div>
+                    </div>
+                  </a>
+                  <!-- 卡片14 -->
+                  <a href="yundongxie(4).html">
+                    <div class="grid-card">
+                      <img
+                        src="https://img.gugu.ovh/i/2025/07/22/173827.webp"
+                        alt="示例图"
+                        class="card-img"
+                      />
+                      <div class="card-content"></div>
+                    </div>
+                  </a>
+                  <!-- 卡片15 -->
+                  <a href="pingdixie(7).html">
+                    <div class="grid-card">
+                      <img
+                        src="https://img.gugu.ovh/i/2025/07/22/131140.webp"
+                        alt="示例图"
+                        class="card-img"
+                      />
+                      <div class="card-content"></div>
+                    </div>
+                  </a>
+                  <!-- 卡片16 -->
+                  <a href="pingdixie(8).html">
+                    <div class="grid-card">
+                      <img
+                        src="https://img.gugu.ovh/i/2025/07/22/131141.webp"
+                        alt="示例图"
+                        class="card-img"
+                      />
+                      <div class="card-content"></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <!-- 第一行：导航标题 -->
+            <div class="tabs-container">
+              <div class="tab">服务 +</div>
+              <div class="tab">购物帮助 +</div>
+              <div class="tab">BANA +</div>
+              <div class="tab">法律信息 +</div>
+            </div>
+
+            <!-- 第二行：主体内容 -->
+            <div class="content-container">
+              <!-- 左侧：联系方式 -->
+              <div class="section contact-section">
+                <h3>联系我们</h3>
+                <h3>请联系客服</h3>
+                <h3>周一至周日 10点-22点</h3>
+                <h3 class="highlight">020-81335099</h3>
+                <h3 class="highlight">133-6055-9947</h3>
+              </div>
+            </div>
+            <div id="bottom-box">
+              <!-- 原微信二维码 -->
+              <img
+                id="wechat-qr-code"
+                src="https://img.gugu.ovh/i/2025/07/21/111050.webp"
+                alt="微信二维码"
+              />
+              <!-- 新增的二维码图片 -->
+              <img
+                id="another-qr-code"
+                src="https://img.gugu.ovh/i/2025/07/24/162127.webp"
+                alt="另一张二维码"
+                style="
+                  position: absolute;
+                  bottom: 10px;
+                  right: 120px;
+                  width: 100px;
+                  height: 120px;
+                "
+              />
+            </div>
+          </div>
+          <!-- 第三行：配送信息 -->
+          <div class="footer-info">
+            <div class="delivery">配送至：中国内地</div>
+          </div>
+        </div>
+        <div style="height: 150px" class="baiSe mgt8 yinYing"></div>
+        <script>
+          document
+            .getElementById("search-button")
+            .addEventListener("click", function () {
+              var searchTerm = document.getElementById("search-input").value;
+              if (searchTerm) {
+                // 假设搜索结果页面为 search.html
+                window.location.href = `search.html?query=${encodeURIComponent(
+                  searchTerm
+                )}`;
+              } else {
+                alert("请输入搜索内容");
+              }
+            });
+        </script>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("search-button")
+        .addEventListener("click", function () {
+          var searchTerm = document.getElementById("search-input").value;
+          if (searchTerm) {
+            window.location.href = `search.html?query=${encodeURIComponent(
+              searchTerm
+            )}`;
+          } else {
+            alert("请输入搜索内容");
+          }
+        });
+    </script>
+  </body>
+</html>
