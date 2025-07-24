@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 重置默认样式，可选 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5; /* 页面背景色，可调整 */
+        padding: 20px;
+      }
+      /* 格子容器：用 grid 实现多列布局 */
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        /* 自动适配列数，每列最小 250px，最大占满剩余空间 */
+        grid-gap: 20px; /* 格子间距 */
+        max-width: 1200px; /* 限制最大宽度，让布局居中紧凑 */
+        margin: 0 auto;
+      }
+      /* 格子卡片样式 */
+      .grid-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* 裁剪图片溢出 */
+        transition: transform 0.2s ease; /*  hover 动画过渡 */
+      }
+      .grid-card:hover {
+        transform: translateY(-5px); /* 轻微上移，增强交互感 */
+      }
+      /* 卡片图片 */
+      .card-img {
+        width: 100%;
+        height: auto;
+        display: block; /* 去掉图片底部间隙 */
+      }
+      /* 卡片内容区域 */
+      .card-content {
+        padding: 16px;
+      }
+      .card-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .card-desc {
+        color: #666;
+        line-height: 1.4;
+      }
+      /* 新增的两个正方形盒子容器 */
+      .square-container {
+        display: grid;
+        /* 修改为自动适配列数，每列最小 250px，最大占满剩余空间 */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 20px;
+        margin-top: 20px;
+      }
+      /* 正方形盒子样式 */
+      .square-box {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        /* 修改百分比值，这里可以调整正方形盒子的大小 */
+        padding-bottom: 100%;
+      }
+      .card-img {
+        width: 100%;
+        height: auto;
+        display: block; /* 去掉图片底部间隙 */
+        object-fit: cover; /* 让图片覆盖整个容器 */
+      }
+
+      /* 正方形盒子样式 */
+      .square-box {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding-bottom: 100%;
+        position: relative; /* 添加相对定位 */
+        overflow: hidden; /* 裁剪溢出的图片 */
+      }
+
+      /* 在正方形盒子里添加图片 */
+      .square-box img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 让图片覆盖整个容器 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <!-- 卡片1 -->
+      <a href="Teshu(1).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105016.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">320g双面米粒绒面料</h2>
+            <p class="card-desc">素色颗粒毛绒布 秋冬卫衣家居服玩偶布料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片2 -->
+      <a href="Teshu(2).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105018.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">210g单面法兰绒</h2>
+            <p class="card-desc">毛绒面料 秋冬外套宠物窝毛绒针织布</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片3 -->
+      <a href="Teshu(3).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105019.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">320g双面宽条法兰绒面料</h2>
+            <p class="card-desc">竖条纹抽条毛绒面料 抱枕家纺家居服绒布</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片4 -->
+      <a href="Teshu(4).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105021.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">360g双面精品牛奶绒布料</h2>
+            <p class="card-desc">针织双面法兰绒毛绒布 秋冬时装家纺绒布</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片5 -->
+      <a href="Teshu(5).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105023.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">260g双面美丽绒面料</h2>
+            <p class="card-desc">摇粒绒颗粒毛绒面料 外套家居服抱枕玩偶绒布</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片6 -->
+      <a href="Teshu(6).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105025.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">280g双面金貂绒面料布</h2>
+            <p class="card-desc">素色双面针织毛绒面料 毛毯秋冬外套毛绒布</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片7 -->
+      <a href="Teshu(7).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105029.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">650g北极兔长毛绒布</h2>
+            <p class="card-desc">单面长毛厚绒布 秋冬外套家居服毛绒玩具面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片8 -->
+      <a href="Teshu(8).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105043.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">5cm狐狸毛面料50毛长毛绒</h2>
+            <p class="card-desc">箱包鞋材服装毛领面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片9 -->
+      <a href="Teshu(9).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105047.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">550G兔毛印花千鸟格</h2>
+            <p class="card-desc">毛绒面料 箱包鞋材服装毛领面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片10 -->
+      <a href="Teshu(10).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105101.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">小棉花绒 小泡泡绒 小舒棉绒 小颗粒羊羔绒</h2>
+            <p class="card-desc">服装鞋材手套内里绒布</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片11 -->
+      <a href="Teshu(11).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105109.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">
+              欧貂雕印条纹雪貂绒渐变条纹印花 水貂 黄金貂
+            </h2>
+            <p class="card-desc">服装外套面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片12 -->
+      <a href="Teshu(12).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105112.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">双面绒 植绒布 双面鹿皮绒</h2>
+            <p class="card-desc">口袋布 束口袋绒布</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片13 -->
+      <a href="Teshu(13).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105117.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">复古质感仿皮绒</h2>
+            <p class="card-desc">
+              加密五枚缎-2 缎纹麂皮短绒面料 鞋材箱包衬衫布料
+            </p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片14 -->
+      <a href="Teshu(14).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105120.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">全涤色丁布新无弹仿真丝</h2>
+            <p class="card-desc">连衣裙睡衣居家礼盒带绸缎面料 鞋材面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片15 -->
+      <a href="Teshu(15).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105123.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">加厚涤莱卡色丁</h2>
+            <p class="card-desc">
+              表演舞蹈服弹力光滑针织面料 平纹连衣裙礼服鞋内里布料
+            </p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片16 -->
+      <a href="Teshu(16).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105125.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">360g鹿皮绒布空气层麂皮绒布</h2>
+            <p class="card-desc">沙发布料 加厚立体绒磨毛服装面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片17 -->
+      <a href="Teshu(17).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105129.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">立体提花 凹凸蝴蝶结提花暗纹面料</h2>
+            <p class="card-desc">童装Lolita面料裙装原创面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片18 -->
+      <a href="Teshu(18).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105130.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">人棉亚麻混纺梭织120g</h2>
+            <p class="card-desc">服装面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片19 -->
+      <a href="Teshu(19).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105132.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">双色提花</h2>
+            <p class="card-desc">国风旗袍汉服连衣裙衬衫童装面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片20 -->
+      <a href="Teshu(20).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105133.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">新国风提花</h2>
+            <p class="card-desc">浮雕肌理裙装旗袍马面裙洛丽塔面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片21 -->
+      <a href="Teshu(21).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105136.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">330g全涤麂皮绒面料</h2>
+            <p class="card-desc">复古外套连衣裙箱包鞋材仿皮绒面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片22 -->
+      <a href="Teshu(22).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105139.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">精品羊津绒弹力麂皮绒面料</h2>
+            <p class="card-desc">服装外套鞋材沙发抱枕箱包汽车仿皮绒布料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片23 -->
+      <a href="Teshu(23).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105142.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">280g烫金麂皮绒面料</h2>
+            <p class="card-desc">涤纶单面仿旧仿皮绒面料 秋冬男装外套面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片24 -->
+      <a href="Teshu(24).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105145.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">国潮印花麂皮绒面料 280G肌理感麂皮绒</h2>
+            <p class="card-desc">复古沙发鞋材箱包服装外套面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片25 -->
+      <a href="Teshu(25).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105148.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">250g斜纹格子麂皮绒布料</h2>
+            <p class="card-desc">全涤针织麂皮绒面料 秋冬潮牌外套面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片26 -->
+      <a href="Teshu(26).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105151.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">11坑灯芯绒面料 300g经编涤纶针织布料</h2>
+            <p class="card-desc">秋冬潮牌卫衣面料箱包鞋材沙发料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片27 -->
+      <a href="Teshu(27).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105153.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">410g复合麂皮绒布料</h2>
+            <p class="card-desc">加密丽丝绒短毛绒面料 束口袋抱枕家纺面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片28 -->
+      <a href="Teshu(28).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/105155.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">240g格兰丝印花面料</h2>
+            <p class="card-desc">针织经编麂皮绒布料 秋冬外套裤子箱包面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片29 -->
+      <a href="Teshu(29).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/111858.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">格子印花麂皮绒复合仿皮</h2>
+            <p class="card-desc">风衣外套裙装家纺箱包鞋材面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片30 -->
+      <a href="Teshu(30).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/111901.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">280g印花雪花绒面料</h2>
+            <p class="card-desc">针织条纹弹力涤纶布料 秋冬潮牌卫衣外套面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片31 -->
+      <a href="Teshu(31).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/111903.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">8坑灯芯绒布料300g针织印花格纹面料</h2>
+            <p class="card-desc">秋冬潮牌卫衣格子面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片32 -->
+      <a href="Teshu(32).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/111904.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">720g磨砂绒复合兔毛布料</h2>
+            <p class="card-desc">经编麂皮绒面料 秋冬服装外套家纺面料</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </body>
+</html>

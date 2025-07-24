@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 重置默认样式，可选 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5; /* 页面背景色，可调整 */
+        padding: 20px;
+      }
+      /* 格子容器：用 grid 实现多列布局 */
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        /* 自动适配列数，每列最小 250px，最大占满剩余空间 */
+        grid-gap: 20px; /* 格子间距 */
+        max-width: 1200px; /* 限制最大宽度，让布局居中紧凑 */
+        margin: 0 auto;
+      }
+      /* 格子卡片样式 */
+      .grid-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* 裁剪图片溢出 */
+        transition: transform 0.2s ease; /*  hover 动画过渡 */
+      }
+      .grid-card:hover {
+        transform: translateY(-5px); /* 轻微上移，增强交互感 */
+      }
+      /* 卡片图片 */
+      .card-img {
+        width: 100%;
+        height: auto;
+        display: block; /* 去掉图片底部间隙 */
+      }
+      /* 卡片内容区域 */
+      .card-content {
+        padding: 16px;
+      }
+      .card-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .card-desc {
+        color: #666;
+        line-height: 1.4;
+      }
+      /* 新增的两个正方形盒子容器 */
+      .square-container {
+        display: grid;
+        /* 修改为自动适配列数，每列最小 250px，最大占满剩余空间 */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 20px;
+        margin-top: 20px;
+      }
+      /* 正方形盒子样式 */
+      .square-box {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        /* 修改百分比值，这里可以调整正方形盒子的大小 */
+        padding-bottom: 100%;
+      }
+      .card-img {
+        width: 100%;
+        height: auto;
+        display: block; /* 去掉图片底部间隙 */
+        object-fit: cover; /* 让图片覆盖整个容器 */
+      }
+
+      /* 正方形盒子样式 */
+      .square-box {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding-bottom: 100%;
+        position: relative; /* 添加相对定位 */
+        overflow: hidden; /* 裁剪溢出的图片 */
+      }
+
+      /* 在正方形盒子里添加图片 */
+      .square-box img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 让图片覆盖整个容器 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <!-- 卡片1 -->
+      <a href="madingxie(1).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151637.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">Y033 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片2 -->
+      <a href="madingxie(2).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151639.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">953-3 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片3 -->
+      <a href="madingxie(3).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151641.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">6377 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片4 -->
+      <a href="madingxue(4).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151643.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">M117 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片5 -->
+      <a href="madingxue(5).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151646.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">1900-2 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片6 -->
+      <a href="madingxue(6).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151648.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">630-6 短靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片7 -->
+      <a href="madingxue(7).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151650.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">67-3 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片8 -->
+      <a href="madingxue(8).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151651.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">7899 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片9 -->
+      <a href="madingxue(9).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151652.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">8510 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片10 -->
+      <a href="madingxue(10).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151653.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">M220 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片11 -->
+      <a href="madingxue(11).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151655.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">3026-2 切尔西</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片12 -->
+      <a href="madingxue(12).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151657.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">6199-1 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片13 -->
+      <a href="madingxue(13).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151659.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">M118 切尔西短靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片14 -->
+      <a href="madingxue(14).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151700.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">3370 切尔西短靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片15 -->
+      <a href="madingxue(15).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151701.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">1900-1 针织短靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片16 -->
+      <a href="madingxue(16).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151702.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">3517 短靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片17 -->
+      <a href="madingxue(17).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151703.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">A329 短靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片18 -->
+      <a href="madingxue(18).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151704.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">8712 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片19 -->
+      <a href="madingxue(19).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151705.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">7821 切尔西短靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片20 -->
+      <a href="madingxue(20).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151706.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">DS970159 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片21 -->
+      <a href="madingxue(21).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151708.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">DS970162 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片22 -->
+      <a href="madingxue(22).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151710.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">DS970139 切尔西短靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片23 -->
+      <a href="madingxue(23).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151711.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">DS970136 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片24 -->
+      <a href="madingxue(24).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151712.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">DS970129 短靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片25 -->
+      <a href="madingxue(25).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151714.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">DS970125 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片26 -->
+      <a href="madingxue(26).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151714_1.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">DS970118 切尔西短靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片27 -->
+      <a href="madingxue(27).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151715.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">DS970121 马丁靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片28 -->
+      <a href="madingxue(28).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151716.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">DS970115 切尔西短靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片29 -->
+      <a href="madingxue(29).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151716_1.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">DS970150 短靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片30 -->
+      <a href="madingxue(30).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/151717.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">DS970132 切尔西短靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片31 -->
+      <a href="madingxue(31).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/164303.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">DS970152 短靴</h2>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片32 -->
+      <a href="madingxue(32).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/22/172202.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">DS970093 切尔西短靴</h2>
+          </div>
+        </div>
+      </a>
+    </div>
+  </body>
+</html>

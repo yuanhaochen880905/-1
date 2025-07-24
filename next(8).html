@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 重置默认样式，可选 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5; /* 页面背景色，可调整 */
+        padding: 20px;
+      }
+      /* 格子容器：用 grid 实现多列布局 */
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        /* 自动适配列数，每列最小 250px，最大占满剩余空间 */
+        grid-gap: 20px; /* 格子间距 */
+        max-width: 1200px; /* 限制最大宽度，让布局居中紧凑 */
+        margin: 0 auto;
+      }
+      /* 格子卡片样式 */
+      .grid-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* 裁剪图片溢出 */
+        transition: transform 0.2s ease; /*  hover 动画过渡 */
+      }
+      .grid-card:hover {
+        transform: translateY(-5px); /* 轻微上移，增强交互感 */
+      }
+      /* 卡片图片 */
+      .card-img {
+        width: 100%;
+        height: auto;
+        display: block; /* 去掉图片底部间隙 */
+      }
+      /* 卡片内容区域 */
+      .card-content {
+        padding: 16px;
+      }
+      .card-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .card-desc {
+        color: #666;
+        line-height: 1.4;
+      }
+      /* 新增的两个正方形盒子容器 */
+      .square-container {
+        display: grid;
+        /* 修改为自动适配列数，每列最小 250px，最大占满剩余空间 */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 20px;
+        margin-top: 20px;
+      }
+      /* 正方形盒子样式 */
+      .square-box {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        /* 修改百分比值，这里可以调整正方形盒子的大小 */
+        padding-bottom: 100%;
+      }
+      .card-img {
+        width: 100%;
+        height: auto;
+        display: block; /* 去掉图片底部间隙 */
+        object-fit: cover; /* 让图片覆盖整个容器 */
+      }
+
+      /* 正方形盒子样式 */
+      .square-box {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding-bottom: 100%;
+        position: relative; /* 添加相对定位 */
+        overflow: hidden; /* 裁剪溢出的图片 */
+      }
+
+      /* 在正方形盒子里添加图片 */
+      .square-box img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 让图片覆盖整个容器 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <!-- 卡片1 -->
+      <a href="Pige(1).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/110338.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">PU</h2>
+            <p class="card-desc">新款2.0仿真皮擦色</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片2 -->
+      <a href="Pige(2).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/110839.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">PU</h2>
+            <p class="card-desc">环保耐磨耐刮无溶剂</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片3 -->
+      <a href="Pige(3).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/111855.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">有机硅胶 马鞍皮革</h2>
+            <p class="card-desc">耐刮防污耐水解</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片4 -->
+      <a href="Pige(4).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/113345.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">超纤皮革</h2>
+            <p class="card-desc">耐磨耐水解</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="grid-container">
+      <!-- 卡片5 -->
+      <a href="Pige(5).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/114814.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">欧标环保再生皮革</h2>
+            <p class="card-desc">可压印LOGO真皮哑光</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片6 -->
+      <a href="Pige(6).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/115139.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">环保再生革</h2>
+            <p class="card-desc">可循环回收真皮材质</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片7 -->
+      <a href="Pige(7).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/115726.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">荔枝纹再生皮革</h2>
+            <p class="card-desc">耐磨防污</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片8 -->
+      <a href="Pige(8).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/120310.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">纳帕纹再生PU人造革</h2>
+            <p class="card-desc">回收塑料瓶ECO皮革哑光质感</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片9 -->
+      <a href="Pige(9).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/122150.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">GRS再生皮革RPET面料</h2>
+            <p class="card-desc">欧标环保鞋包用PU防水</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片10 -->
+      <a href="Pige(10).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/123015.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">0.8mm单面绒面料仿超纤</h2>
+            <p class="card-desc">内饰抱枕手袋内里用耐磨绒面</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片11 -->
+      <a href="Pige(11).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/123512.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">动物纹再生皮革鳄鱼纹</h2>
+            <p class="card-desc">环保再生皮胚制作,无刺激性气味</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片12 -->
+      <a href="Pige(12).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/140650.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">超纤漆皮镜</h2>
+            <p class="card-desc">高剥离耐水解耐曲折</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片13 -->
+      <a href="Pige(13).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164018.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">真皮再生革</h2>
+            <p class="card-desc">欧盟环保可再生利用,真皮成分高</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片14 -->
+      <a href="Pige(14).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164021.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">经典款再生羊巴皮,耐刮grs认证</h2>
+            <p class="card-desc">鞋材,包包,手袋,用双色耐磨耐刮</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片15 -->
+      <a href="Pige(15).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164025.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">绒面超纤皮革</h2>
+            <p class="card-desc">定岛双面不色迁</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片16 -->
+      <a href="Pige(16).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164023.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">1.2mm双面绒超纤皮料</h2>
+            <p class="card-desc">手套,服装,鞋面,翻毛绒面</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片17 -->
+      <a href="Pige(17).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164027.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">0.9珠光亮面再生PU</h2>
+            <p class="card-desc">女鞋,金属抛光,人造革,箱包,RPET皮革面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片18 -->
+      <a href="Pige(18).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164029.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">再生皮革RPET面料</h2>
+            <p class="card-desc">欧标环保鞋包用PU防水</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片19 -->
+      <a href="Pige(19).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164031.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">1.2mm双色超纤皮革</h2>
+            <p class="card-desc">高密度纤维真皮替代品,压纹,复古,超纤人造革</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片20 -->
+      <a href="Pige(20).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164034.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">超纤pu压纹</h2>
+            <p class="card-desc">透气户外军训鞋包帆布迷彩纹军旅</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片21 -->
+      <a href="Pige(21).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164037.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">褶皱亮面革超纤哈密瓜纹超纤</h2>
+            <p class="card-desc">可做抗菌处理,漆皮皱镜超纤皮</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片22 -->
+      <a href="Pige(22).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164039.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">羊纹真超纤pu</h2>
+            <p class="card-desc">手感软,剥离强度高,服饰皮裙用仿真皮质感</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片23 -->
+      <a href="Pige(23).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164041.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">超纤麂皮绒</h2>
+            <p class="card-desc">耐磨高色牢度水洗不掉色,服装辅料,商标用</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片24 -->
+      <a href="Pige(24).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164045.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">1.2针纹汽车皮革贴面超纤</h2>
+            <p class="card-desc">柔软,耐水解,抗刮,座椅,汽车内饰皮</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片25 -->
+      <a href="Pige(25).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164050.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">仿超纤pu皮革</h2>
+            <p class="card-desc">高剥离8公斤鞋面革,体育用品用</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片26 -->
+      <a href="Pige(26).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164051.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">1.4羊巴再生皮革grs磨砂细绒</h2>
+            <p class="card-desc">可压logo,箱包皮革牛纤皮面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片27 -->
+      <a href="Pige(27).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164052.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">1.4双色压纹擦焦真超纤</h2>
+            <p class="card-desc">箱包,鞋,餐垫用皮哑光</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片28 -->
+      <a href="Pige(28).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164054.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">粉扑皮革0.35mm无底布四面弹</h2>
+            <p class="card-desc">耐水解,pu粉扑皮革料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片29 -->
+      <a href="Pige(29).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164056.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">镜面再生PU复古双色亮面人造革</h2>
+            <p class="card-desc">TC长靴漆皮</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片30 -->
+      <a href="Pige(30).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164058.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">1.4耐水解仿超纤</h2>
+            <p class="card-desc">耐磨不色迁鞋材仿超纤皮革</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片31 -->
+      <a href="Pige(31).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164059.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">仿皮再生pu防水弹力皮革料</h2>
+            <p class="card-desc">坐垫,皮套盒子,服装皮革rpet面料</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片32 -->
+      <a href="Pige(32).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164101.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">猪皮纹超纤</h2>
+            <p class="card-desc">
+              耐磨耐刮,透气透湿,内里专用真超纤皮鞋材用超纤皮革
+            </p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片33 -->
+      <a href="Pige(33).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164103.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">十字纹再生皮革</h2>
+            <p class="card-desc">欧标环保耐磨牛纤皮手袋箱包用grs再生皮</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片34 -->
+      <a href="Pige(34).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/171332.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">复古磨砂羊巴革pu皮料</h2>
+            <p class="card-desc">仿翻毛皮风格,鞋材,箱包,通用PU人造革</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片35 -->
+      <a href="Pige(35).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164112.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">双色复古揉纹再生PU皮革</h2>
+            <p class="card-desc">防霉抗菌,箱包,鞋材用小牛纹皮革哑光</p>
+          </div>
+        </div>
+      </a>
+      <!-- 卡片36 -->
+      <a href="Pige(36).html">
+        <div class="grid-card">
+          <img
+            src="https://img.gugu.ovh/i/2025/07/21/164113.webp"
+            alt="示例图"
+            class="card-img"
+          />
+          <div class="card-content">
+            <h2 class="card-title">牛纹超纤</h2>
+            <p class="card-desc">防霉抗菌,箱包鞋材,用小牛纹皮革哑光</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </body>
+</html>
