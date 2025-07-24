@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>双面宽条法兰绒面料</title>
+    <style>
+      /* 基础样式重置 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 20px; /* 页面边缘留白，避免盒子贴边 */
+        min-height: 100vh; /* 确保页面高度至少为屏幕高度 */
+      }
+
+      /* 容器：控制两个盒子并排 */
+      .box-container {
+        display: flex; /* 启用弹性布局 */
+        gap: 30px; /* 两个盒子之间的间隔（明显可见） */
+        width: 100%; /* 容器宽度占满屏幕 */
+        height: calc(100vh - 40px); /* 高度减去上下留白，占满剩余屏幕 */
+      }
+
+      /* 盒子样式：自适应屏幕 */
+      .content-box {
+        flex: 1; /* 两个盒子平均分配容器宽度 */
+        min-width: 200px; /* 最小宽度限制，避免屏幕过窄时盒子过小 */
+        border: 2px solid #222121; /* 边框区分盒子 */
+        overflow: hidden; /* 隐藏超出盒子的内容 */
+        border-radius: 8px;
+        border-collapse: separate;
+      }
+
+      /* 图片自适应盒子大小 */
+      .content-box img {
+        width: 100%; /* 图片宽度自适应盒子 */
+        height: 100%; /* 图片高度自适应盒子 */
+        object-fit: contain; /* 保持图片完整显示，不裁剪，可能会有空白 */
+        /* 或使用 object-fit: cover; 保持比例填满盒子（可能裁剪边缘） */
+        image-rendering: auto; /* 移除强制对比度优化，使用浏览器默认渲染 */
+        max-width: 100%; /* 确保图片不会超出盒子宽度 */
+        max-height: 100%; /* 确保图片不会超出盒子高度 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-container">
+      <!-- 第一个盒子：带图片 -->
+      <div class="content-box">
+        <img
+          src="https://img.gugu.ovh/i/2025/07/23/115027.webp"
+          alt="示例图片"
+        />
+      </div>
+
+      <!-- 第二个盒子：静态图片展示，与第一个盒子一致 -->
+      <div class="content-box empty-box">
+        <!-- 在这里替换为你想要展示的图片 -->
+        <img
+          src="https://img.gugu.ovh/i/2025/07/23/115030.webp"
+          alt="请在这里添加图片"
+        />
+      </div>
+    </div>
+  </body>
+</html>
